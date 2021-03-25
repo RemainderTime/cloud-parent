@@ -17,6 +17,7 @@
     <modules>
         <module>cloud-system</module>
         <module>cloud-gateway</module>
+        <module>cloud-base</module>
     </modules>
     <properties>
         <swagger.version>2.9.2</swagger.version>
@@ -35,7 +36,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--spring cloud alibaba 依赖-->
+            <!--1.spring cloud alibaba 依赖-->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -44,14 +45,14 @@
                 <scope>import</scope>
             </dependency>
 
-            <!-- 引入网关gateway依赖 -->
+            <!--4. 引入网关gateway依赖 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-gateway</artifactId>
                 <version>2.1.2.RELEASE</version>
             </dependency>
 
-            <!--swagger 依赖-->
+            <!--5.swagger API管理 依赖-->
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>
@@ -84,6 +85,16 @@
                 <version>${swagger.annotations.version}</version>
             </dependency>
 
+            <!--6.引入 openfeign  一个轻量级RESTful的HTTP服务
+            使用Feign的注解定义接口，调用接口，就可以调用服务注册中心的服务-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-openfeign-dependencies</artifactId>
+                <version>2.1.2.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
     <dependencies>
@@ -97,13 +108,13 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!--nacos注册中心依赖 -->
+        <!--2.nacos注册中心依赖 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-        <!--nacos config  配置中心-->
+        <!--3.nacos config  配置中心-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
@@ -152,7 +163,7 @@
                 <spring.active>product</spring.active>
             </properties>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
         </profile>
         <profile>
@@ -161,7 +172,7 @@
                 <spring.active>dev</spring.active>
             </properties>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
         </profile>
     </profiles>

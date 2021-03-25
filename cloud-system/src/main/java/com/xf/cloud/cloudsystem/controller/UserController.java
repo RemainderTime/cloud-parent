@@ -1,8 +1,10 @@
 package com.xf.cloud.cloudsystem.controller;
 
+import com.xf.cloud.cloudsystem.consumer.BaseConsumerSystem;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,10 +20,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
 
+    @Autowired
+    private BaseConsumerSystem baseConsumerSystem;
+
     @ApiOperation(value = "获取用户信息",notes = "/",httpMethod = "GET")
     @ApiImplicitParam(dataType = "string",name = "name",value = "姓名",required = true)
-    @RequestMapping(value = "/info")
+    @RequestMapping(value = "/getName")
     public String getUser(String name){
         return "Hello "+name;
+    }
+
+    @ApiOperation(value = "远程调用base服务获取用户信息",notes = "/",httpMethod = "GET")
+    @ApiImplicitParam(dataType = "string",name = "name",value = "姓名",required = true)
+    @RequestMapping(value = "/info")
+    public String getInfo(String name){
+        return baseConsumerSystem.getUserInfo(name);
     }
 }
