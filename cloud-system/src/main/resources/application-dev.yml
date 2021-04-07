@@ -11,11 +11,11 @@ spring:
         watch-delay: 1000
         server-addr: 127.0.0.1:8848
   datasource: # 7 : 设置数据库配置
-    driverClassName: com.mysql.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://47.94.224.61:3306/qs?characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/cloud-sys?characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
     username: root
-    password: quansu123
+    password: root
     max-idle: 10
     max-wait: 10000
     min-idle: 5
@@ -30,8 +30,6 @@ spring:
       time-zone: GMT+8
       serialization:
         write-dates-as-timestamps: false
-
-
 #启用 httpclient
 feign:
   httpclient:
@@ -44,3 +42,13 @@ feign:
         loggerLevel: full
         connectTimeout: 5000  #连接超时时间
         readTimeout: 50000    #连接超时时间
+
+mybatis-plus:
+  mapper-locations: classpath:mapping/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.xf.cloud.cloudsystem.entity
+  configuration:
+    # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 返回类型为Map,显示null对应的字段
+    call-setters-on-nulls: true
