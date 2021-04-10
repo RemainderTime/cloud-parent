@@ -88,8 +88,6 @@
                 <version>${swagger.annotations.version}</version>
             </dependency>
             <dependency>
-
-
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-models</artifactId>
                 <version>${swagger.annotations.version}</version>
@@ -134,6 +132,13 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>3.3.2</version>
+            </dependency>
+
+            <!--9.集成rocketMQ消息中间件-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-stream-rocketmq</artifactId>
+                <version>2.1.0.RELEASE</version>
             </dependency>
 
         </dependencies>

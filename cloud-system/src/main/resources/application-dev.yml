@@ -10,6 +10,16 @@ spring:
       discovery:
         watch-delay: 1000
         server-addr: 127.0.0.1:8848
+    stream: # 9 :RocketMq 配置
+      rocketmq:
+        binder:
+          name-server: 127.0.0.1:9876
+      bindings:
+        output:
+          destination: mq-topic
+        input:
+          destination: mq-topic
+          group: mq-group
   datasource: # 7 : 设置数据库配置
     driverClassName: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
