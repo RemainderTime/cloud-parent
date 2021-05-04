@@ -3,6 +3,7 @@ package com.xf.cloud.cloudsystem.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.xf.cloud.cloudsystem.consumer.BaseConsumerSystem;
 import com.xf.cloud.cloudsystem.entity.User;
+import com.xf.cloud.cloudsystem.model.ResponseResult;
 import com.xf.cloud.cloudsystem.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -68,5 +69,11 @@ public class UserController {
         rocketMQTemplate.sendMessageInTransaction("commit_user_producer_group","USER_SEND_MESSAGE_TOPIC_T",msg,null);
 
         return "发送成功";
+    }
+
+    @ApiOperation(value = "10.2 sentinel整合openfeign实现降级处理",notes = "/",httpMethod = "GET")
+    @RequestMapping(value = "/breaker")
+    public ResponseResult breaker(){
+        return baseConsumerSystem.breaker();
     }
 }

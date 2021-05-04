@@ -18,7 +18,7 @@ spring:
         ds1:
           nacos:
             server-addr: 127.0.0.1:8848
-            dataId: cloudalibaba-sentinal-service
+            dataId: ${spring.application.name}-sentinel
             groupId: DEFAULT_GROUP
             data-type: json
             rule-type: flow
@@ -64,6 +64,8 @@ feign:
         loggerLevel: full
         connectTimeout: 5000  #连接超时时间
         readTimeout: 50000    #连接超时时间
+  sentinel:
+    enabled: true # 10.2 打开sentinel对feign的支持
 
 mybatis-plus:
   mapper-locations: classpath:mapping/*.xml

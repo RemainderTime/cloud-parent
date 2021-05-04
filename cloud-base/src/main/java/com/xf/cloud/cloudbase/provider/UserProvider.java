@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserProvider implements UserApi {
     @Override
     public String getUserInfo(String name) {
-
         return name+"，成功的使用openfeign调用了一个base服务";
     }
 }

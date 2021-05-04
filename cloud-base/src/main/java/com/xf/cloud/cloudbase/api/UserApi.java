@@ -2,6 +2,7 @@ package com.xf.cloud.cloudbase.api;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @program: cloud-parent
@@ -13,4 +14,5 @@ public interface UserApi {
 
     @RequestMapping("/user/info")
     String getUserInfo(@RequestParam("name")String name);
+
 }

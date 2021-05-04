@@ -16,6 +16,14 @@ import lombok.Data;
 @Data
 @TableName("sys_user")
 public class User {
+    public User() {
+    }
+
+    public User(Long id, String userName, String password) {
+        this.id = id;
+        this.userName = userName;
+        this.password = password;
+    }
 
     @TableId
     private Long id;
