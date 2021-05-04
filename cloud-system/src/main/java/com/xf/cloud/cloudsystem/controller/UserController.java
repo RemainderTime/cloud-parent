@@ -65,7 +65,7 @@ public class UserController {
         jsonObject.put("message",message);
         String s = jsonObject.toJSONString();
         Message<String> msg = MessageBuilder.withPayload(s).build();
-        rocketMQTemplate.sendMessageInTransaction("commit_user_producer_listener","USER_SEND_MESSAGE_TOPIC_T",msg,null);
+        rocketMQTemplate.sendMessageInTransaction("commit_user_producer_group","USER_SEND_MESSAGE_TOPIC_T",msg,null);
 
         return "发送成功";
     }

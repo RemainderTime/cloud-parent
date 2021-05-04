@@ -13,7 +13,7 @@ import org.springframework.messaging.Message;
  * @create: 2021-04-11 00:01
  **/
 @Slf4j
-@RocketMQTransactionListener(txProducerGroup = "commit_user_producer_listener")
+@RocketMQTransactionListener(txProducerGroup = "commit_user_producer_group")
 public class CommitUserProducerListener implements RocketMQLocalTransactionListener {
     @Override
     public RocketMQLocalTransactionState executeLocalTransaction(Message message, Object o) {

@@ -141,6 +141,20 @@
                 <version>2.1.0.RELEASE</version>
             </dependency>
 
+            <!--10.集成sentinel组件进行限流和断融机制 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+                <version>2.1.0.RELEASE</version>
+            </dependency>
+            <!--10.1.将sentinel规则持久化到nacos中 -->
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-datasource-nacos</artifactId>
+                <version>1.8.1</version>
+            </dependency>
+
+
         </dependencies>
     </dependencyManagement>
     <dependencies>

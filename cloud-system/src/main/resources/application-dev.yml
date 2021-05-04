@@ -10,6 +10,18 @@ spring:
       discovery:
         watch-delay: 1000
         server-addr: 127.0.0.1:8848
+    sentinel:  # 10 sentinel 配置
+      transport:
+        dashboard: localhost:8858 #配置sentinel dashboard地址
+        port: 8719
+      datasource: # 10.1 将sentinel规则持久化到nacos中
+        ds1:
+          nacos:
+            server-addr: 127.0.0.1:8848
+            dataId: cloudalibaba-sentinal-service
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
     stream: # 9 :RocketMq 配置
       rocketmq:
         binder:
